@@ -1,8 +1,13 @@
 package com.kodilla.spring.library;
 
+import com.kodilla.spring.reader.ReaderConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Arrays;
 
 @SpringBootTest
 class LibraryTestSuite {
@@ -26,5 +31,26 @@ class LibraryTestSuite {
         library.saveToDb();
         //Then
         //do nothing
+    }
+    @Test
+    void testContext() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+
+        //When & Then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
+    }
+    @Test
+    void testConditional() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext(ReaderConfig.class);
+        //When
+        boolean book2Exists = context.containsBean("book2");
+        //Then
+        System.out.println("Bean book2 was found in the container: " + book2Exists);
     }
 }
