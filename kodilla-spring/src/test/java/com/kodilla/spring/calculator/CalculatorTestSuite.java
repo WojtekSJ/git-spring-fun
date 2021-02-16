@@ -10,12 +10,15 @@ public class CalculatorTestSuite {
 
         @Autowired
         private Calculator calculator;
+        @Autowired
+        private  Display display;
 
         @Test
         public void testAdd() {
             //Given
             //When
-            calculator.add(2, 5.6);
+            calculator.display.displayValue(calculator.add(2, 5.6));
+            //display.displayValue(calculator.add(2, 5.6));
             //Then
             //do nothing
         }
@@ -24,7 +27,7 @@ public class CalculatorTestSuite {
         public void testSub() {
             //Given
             //When
-            calculator.sub(5, 2.5);
+            calculator.display.displayValue(calculator.sub(5, 2.5));
             //Then
             //do nothing
         }
@@ -32,7 +35,7 @@ public class CalculatorTestSuite {
     public void testMul() {
         //Given
         //When
-        calculator.mul(2, 2);
+        calculator.display.displayValue(calculator.mul(2, 2));
         //Then
         //do nothing
     }
@@ -40,7 +43,7 @@ public class CalculatorTestSuite {
     public void testDiv() {
         //Given
         //When
-        calculator.div(5, 1);
+        calculator.display.displayValue(calculator.div(5, 1));
         //Then
         //do nothing
     }

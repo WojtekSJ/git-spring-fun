@@ -6,7 +6,7 @@ public class Board {
 
     public TaskList toDoList;
     public TaskList inProgressList;
-    TaskList doneList;
+    public TaskList doneList;
 
     public Board(TaskList toDoList, TaskList inProgressList, TaskList doneList) {
         this.toDoList = toDoList;
