@@ -61,7 +61,7 @@ class ShopServiceTestSuite {
     }
 
     @Autowired
-    private OrderFacade orderFacade;
+    public OrderFacade orderFacade;
 
 
 
